@@ -1,0 +1,224 @@
+body {
+  margin: 0;
+  font-family: azo-sans-web, sans-serif;
+}
+
+header {
+  margin: 0;
+}
+
+header h1 {
+  margin: -1.3rem 0 0 -.4rem;
+  font-size: 4rem;
+  font-weight: 200;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+header a {
+  color: #dbdbdb;
+}
+
+header address {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-weight: 300;
+  font-style: normal;
+  line-height: 2rem;
+  grid-row: 1 / 3;
+  grid-column: 2;
+}
+
+@media screen and (min-width: 640px) {
+  header address {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  header address {
+    display: block;
+  }
+}
+
+header address .geo-location {
+  grid-column: 1 / 3;
+}
+
+@media screen and (min-width: 640px) {
+  header address > * {
+    display: block;
+  }
+}
+
+header address > * {
+  color: #888;
+  text-decoration: none;
+  display: inline-block;
+}
+
+@media screen and (min-width: 640px) {
+  header address > * {
+    display: block;
+  }
+}
+
+header address *:hover {
+  color: #dbdbdb;
+  text-decoration: underline;
+}
+
+header address .emoji-prefixed,
+header address .icon-prefixed {
+  position: relative;
+  padding-left: 35px;
+}
+
+header address .emoji-prefixed::before,
+header address .icon-prefixed::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 35px;
+}
+
+header address .emoji-prefixed::before {
+  text-align: center;
+  -webkit-filter: grayscale(60%);
+  -moz-filter: grayscale(60%);
+  -ms-filter: grayscale(60%);
+  -o-filter: grayscale(60%);
+  filter: grayscale(60%);  
+}    
+
+header address .emoji-prefixed:hover::before {
+  -webkit-filter: none;
+  -moz-filter: none;
+  -ms-filter: none;
+  -o-filter: none;
+  filter: none;
+}    
+
+header address .icon-prefixed::before {
+  content: '';
+  height: 100%;
+}
+
+header address .phone::before {
+  content: '☎️';
+}
+
+header address .email::before {
+  content: '📩';
+}
+
+header address .geo-location::before {
+  content: '📍';
+}
+
+header address .github::before {
+  background: url('github.png') center no-repeat;
+  background-size: auto 16px;
+}
+
+header address .linkedin::before {
+  background: url('linkedin.png') center no-repeat;
+  background-size: auto 14px;
+  background-position: center right 35%;
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+header h2 {
+  margin: -.3rem 0 0 -.25rem;
+  font-size: 1.5rem;
+  font-weight: 200;
+  font-style: italic;
+  grid-column: 1 / 2;
+}
+
+@media screen and (min-width: 640px) {
+  header h2 {
+    font-size: 1.75rem;
+  }
+}
+
+@media screen and (min-width: 780px) {
+  header h2 {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  header h2 {
+    font-size: 2.2rem;
+  }
+}
+
+@media screen and (min-width: 1150px) {
+  header h2 {
+    font-size: 2.5rem;
+  }
+}
+
+header h2 span:last-child {
+  display: block;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  body {
+    background-color: #2a2a2a;
+    color: #dbdbdb;
+  }
+}
+
+header .summary {
+  font-weight: 300;
+}
+
+@media screen and (max-width: 639px) {
+  .mobile-portrait-only {
+    display: none;
+  }
+}
+
+.experience h2,
+.experience h3 {
+  font-weight: 300;
+}
+
+.experience ol {
+  list-style: none;
+  padding: 0;
+}
+
+.experience li {
+  grid-template-columns: 1fr 1fr 1fr;
+  font-weight: 300;
+}
+
+@media screen and (min-width: 780px) {
+  .experience li {
+    display: grid;
+
+  }
+}
+
+.experience li h3 {
+  margin: 0;
+}
+
+.experience li .company .name {
+  display: block;
+  font-weight: 400;
+}
+
+.experience li .company .name::after {
+  content: ', ';
+  font-weight: 300;
+}
