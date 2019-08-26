@@ -1,3 +1,45 @@
+/* Variables */
+:root {
+  --font-size-1: 3rem;
+  --font-size-1-height-coeff: 0.75;
+  --font-size-1-margin-coeff: calc(1 / 6);
+
+  --font-size-2: 1.35rem;
+  --font-size-2-height-coeff: 1.25;
+  --font-size-2-margin-coeff: calc(1 / 30);
+}
+
+@media screen and (min-width: 640px) {
+  :root {
+    --font-size-1: 4rem;
+    --font-size-2: 1.75rem;
+  }
+}
+@media screen and (min-width: 780px) {
+  :root {
+    --font-size-1: 4.25rem;
+    --font-size-2: 2rem;
+  }
+}
+@media screen and (min-width: 1000px) {
+  :root {
+    --font-size-1: 4.5rem;
+    --font-size-2: 2.2rem;
+  }
+}
+@media screen and (min-width: 1150px) {
+  :root {
+    --font-size-1: 4.75rem;
+    --font-size-2: 2.5rem;
+  }
+}
+@media print {
+}
+
+header address {
+  --base-screen-font-size: .9rem;
+}
+
 body {
   margin: 0;
   font-family: azo-sans-web, sans-serif;
@@ -8,11 +50,28 @@ header {
 }
 
 header h1 {
-  margin: -1.3rem 0 0 -.4rem;
-  font-size: 4rem;
-  font-weight: 200;
+  margin: 0 0 calc(var(--font-size-1) * var(--font-size-1-margin-coeff));
+  height: calc(var(--font-size-1) * var(--font-size-1-height-coeff));
+  line-height: calc(var(--font-size-1) * var(--font-size-1-height-coeff));
+  font-size: var(--font-size-1);
   font-style: normal;
+  font-weight: 200;
   text-transform: uppercase;
+}
+
+header h2 {
+  grid-column: 1 / 2;
+  margin: 0 0 calc(var(--font-size-2) * var(--font-size-2-margin-coeff));
+  padding: 0 .25rem;
+  line-height: calc(var(--font-size-2) * var(--font-size-2-height-coeff));
+  font-size: var(--font-size-2);
+  font-weight: 200;
+  font-style: italic;
+}
+
+header h2 .realm {
+  font-size: calc(0.75 * var(--font-size-2));
+  line-height: calc(0.75 * var(--font-size-2) * var(--font-size-2-height-coeff));
 }
 
 header a {
@@ -127,42 +186,10 @@ header address .linkedin::before {
   background-position: center right 35%;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 780px) {
   header {
     display: grid;
     grid-template-columns: 2fr 1fr;
-  }
-}
-
-header h2 {
-  margin: -.3rem 0 0 -.25rem;
-  font-size: 1.5rem;
-  font-weight: 200;
-  font-style: italic;
-  grid-column: 1 / 2;
-}
-
-@media screen and (min-width: 640px) {
-  header h2 {
-    font-size: 1.75rem;
-  }
-}
-
-@media screen and (min-width: 780px) {
-  header h2 {
-    font-size: 2rem;
-  }
-}
-
-@media screen and (min-width: 1000px) {
-  header h2 {
-    font-size: 2.2rem;
-  }
-}
-
-@media screen and (min-width: 1150px) {
-  header h2 {
-    font-size: 2.5rem;
   }
 }
 
@@ -187,6 +214,29 @@ header .summary {
   }
 }
 
+.experience {
+  grid-template-columns: 2fr 1fr;
+}
+
+@media screen and (min-width: 780px) {
+  .experience {
+    display: grid;
+  }
+}
+
+.experience h2 {
+  grid-column: 1 / 3;
+}
+
+.experience ol {
+  grid-column: 1 / 2;
+  margin: 0;
+}
+
+.experience h2 {
+  margin-bottom: 0;
+}
+
 .experience h2,
 .experience h3 {
   font-weight: 300;
@@ -198,8 +248,14 @@ header .summary {
 }
 
 .experience li {
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 15rem;
   font-weight: 300;
+  margin: 2rem 0 0;
+}
+
+.experience li .unit {
+  display: inline-block;
+  white-space: nowrap;
 }
 
 @media screen and (min-width: 780px) {
@@ -210,7 +266,23 @@ header .summary {
 }
 
 .experience li h3 {
+  font-weight: 400;
   margin: 0;
+  grid-row: 1 / 2;
+}
+
+.experience li time {
+  grid-column: 1 / 2;
+}
+
+.experience li .company {
+  grid-row: 1 / 3;
+}
+
+@media screen and (min-width: 780px) {
+  .experience li .company {
+    text-align: right;
+  }  
 }
 
 .experience li .company .name {
@@ -221,4 +293,8 @@ header .summary {
 .experience li .company .name::after {
   content: ', ';
   font-weight: 300;
+}
+
+.experience li p {
+  grid-column: 1 / 3;
 }
