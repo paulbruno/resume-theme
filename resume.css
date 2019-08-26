@@ -34,11 +34,7 @@
   }
 }
 @media print {
-}
-
-header address {
-  --base-screen-font-size: .9rem;
-}
+}  
 
 body {
   margin: 0;
@@ -84,7 +80,7 @@ header address {
   font-weight: 300;
   font-style: normal;
   line-height: 2rem;
-  grid-row: 1 / 3;
+  grid-row: 1 / 4;
   grid-column: 2;
 }
 
@@ -190,6 +186,13 @@ header address .linkedin::before {
   header {
     display: grid;
     grid-template-columns: 2fr 1fr;
+    grid-template-rows:
+      calc(
+        calc(var(--font-size-1) * var(--font-size-1-height-coeff))
+        +
+        calc(var(--font-size-1) * var(--font-size-1-margin-coeff))
+      )
+    ;
   }
 }
 
