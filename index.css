@@ -277,7 +277,7 @@ header .summary {
   padding: 0;
 }
 
-.experience li {
+.experience ol > li {
   grid-template-columns: 1fr 15rem;
   font-weight: 300;
   margin: 2rem 0 0;
@@ -289,7 +289,7 @@ header .summary {
 }
 
 @media screen and (min-width: 780px) {
-  .experience li {
+  .experience ol > li {
     display: grid;
 
   }
@@ -306,7 +306,7 @@ header .summary {
 }
 
 .experience li .company {
-  grid-row: 1 / 3;
+  grid-row: 1 / 4;
 }
 
 @media screen and (min-width: 780px) {
@@ -320,11 +320,23 @@ header .summary {
   font-weight: 400;
 }
 
-.experience li .company .name::after {
-  content: ', ';
-  font-weight: 300;
+.experience li .company .location {
+  margin-top: .5rem;
 }
 
-.experience li p {
-  grid-column: 1 / 3;
+.experience li p, 
+.experience li ul {
+  grid-column: 1 / 2;
+}
+
+.experience li .company .location.hq::before {
+  content: "headquarters ";
+  font-style: italic;
+  display: block;
+}
+
+.experience li .company .location.remote-base::before {
+  content: "remote from ";
+  font-style: italic;
+  display: block;
 }
