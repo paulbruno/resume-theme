@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{basics.name}} &mdash; Resume</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link type="text/css" rel="stylesheet" href="https://use.typekit.net/suh1cak.css">
+  <link type="text/css" rel="stylesheet" href="index.css" media="all">
+</head>
+<body>
+  <article>
+    {{#with basics}}
+    <header>
+      <h1 class="name">{{name}}</h1>
+      <h2 class="objective">
+        <span class="role">Sr. Engineer & Tech/Team Lead</span>
+        <span class="realm">Front End Specialist & Full Stack Generalist</span>
+      </h2>
+      <address>
+        {{#with location}}
+        <a href="https://maps.apple.com/?q={{{city}}},{{{region}}},{{{countryCode}}}z=4" class="geo-location emoji-prefixed">{{city}}, {{region}}</a>
+        {{/with}}
+        <a href="tel:{{{phone}}}" class="phone emoji-prefixed">{{formatPhone phone}}</a>
+        <a href="mailto:{{{email}}}" class="email emoji-prefixed">{{email}}</a>
+        {{#each profiles}}
+        <a href="{{{url}}}" class="{{{toLowercase network}}} icon-prefixed">{{extractDomain url}}<span class="mobile-portrait-only">{{extractPath url}}</span></a>
+        {{/each}}
+      </address>
+
+      <p class="summary">
+        {{summary}}
+      </p>
+    </header>
+    {{/with}}
+    {{#if work}}
+    <section class="experience">
+      <h2>Recent Professional Experience and Accomplishments</h2>
+      <ol>
+        {{#each work}}
+        <li>
+          <h3>
+            {{position}}
+          </h3>
+          <time><span class="unit">{{formatDate startDate}} &ndash; {{formatDate endDate}}{{^endDate}}present{{/endDate}}</span></time>
+          <div class="company">
+            <span class="name">
+              {{#if previousName}}
+              <span class="unit">{{name}}</span>
+              <span class="unit">(formerly {{previousName}})</span>
+              {{else}}
+              {{name}}
+              {{/if}}
+            </span>
+            <span class="location{{#if remoteLocation}} hq{{/if}}">
+              {{#if previousLocation}}
+              <span class="unit">{{previousLocation}}</span> → <span class="unit">{{location}}</span>
+              {{else}}
+              {{location}}
+              {{/if}}
+            </span>
+            {{#if remote}}
+            {{#if remoteLocation}}
+            <span class="location remote-base">{{remoteLocation}}</span>
+            {{/if}}
+            {{/if}}
+          </div>
+          {{#if summary}}
+          <p>
+            {{summary}}
+          </p>
+          {{/if}}
+          {{#if highlights}}
+          <ul>
+            {{#each highlights}}
+            <li>{{this}}</li>
+            {{/each}}
+          </ul>
+          {{/if}}
+        </li>
+        {{/each}}
+      </ol>
+    </section>
+    {{/if}}
+    <footer>
+
+    </footer>
+  </article>
+</body>
+</html>
