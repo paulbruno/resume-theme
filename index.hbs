@@ -14,10 +14,16 @@
     {{#with basics}}
     <header>
       <h1 class="name">{{name}}</h1>
+      {{#with objective}}
       <h2 class="objective">
-        <span class="role">Sr. Engineer & Tech/Team Lead</span>
-        <span class="realm">Front End Specialist & Full Stack Generalist</span>
+        {{#if role}}
+        <span class="role">{{role}}</span>
+        {{/if}}
+        {{#if realm}}
+        <span class="realm">{{realm}}</span>
+        {{/if}}
       </h2>
+      {{/with}}
       <address>
         {{#with location}}
         <a href="https://maps.apple.com/?q={{{city}}},{{{region}}},{{{countryCode}}}z=4" class="geo-location emoji-prefixed">{{city}}, {{region}}</a>
