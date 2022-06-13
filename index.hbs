@@ -30,7 +30,7 @@
       </address>
 
       <p class="summary">
-        {{summary}}
+        {{{markdown summary}}}
       </p>
     </header>
     {{/with}}
@@ -68,13 +68,13 @@
           </div>
           {{#if summary}}
           <p>
-            {{summary}}
+            {{{markdown summary}}}
           </p>
           {{/if}}
           {{#if highlights}}
           <ul>
             {{#each highlights}}
-            <li>{{this}}</li>
+            <li>{{{markdown this}}}</li>
             {{/each}}
           </ul>
           {{/if}}
